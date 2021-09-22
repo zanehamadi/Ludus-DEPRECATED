@@ -5,7 +5,6 @@ class Game(db.Model):
     __tablename__ = 'games'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     name = db.Column(db.String)
     steam_appid = db.Column(db.Integer)
     required_age = db.Column(db.Integer)
@@ -16,12 +15,12 @@ class Game(db.Model):
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
 
-    users = db.relationship('User', back_populates='games')
+    want_to_play = db.relationship('Want_To_Play', back_populates='game')
+
 
     def to_dict(self):
         return{
             "id": self.id,
-            "user_id": self.user_id,
             "name": self.name,
             "steam_appid": self.steam_appid,
             "required_age": self.required_age,
