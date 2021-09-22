@@ -22,7 +22,6 @@ function Home({user}){
                     <div>
                         <Link to='/signup'>Signup</Link>
                     </div>
-                    <h3>Test</h3>
 
                 </div>
         
