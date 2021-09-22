@@ -11,7 +11,11 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    want_to_play = db.relationship('Want_To_Play', back_populates='user')
+    want_to_play = db.relationship('WantToPlay', back_populates='user')
+    playing = db.relationship('Playing', back_populates='user')
+    played = db.relationship('Played', back_populates='user')
+
+
 
 
 

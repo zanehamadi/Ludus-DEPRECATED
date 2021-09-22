@@ -6,7 +6,6 @@ class Game(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
-    steam_appid = db.Column(db.Integer)
     required_age = db.Column(db.Integer)
     is_free = db.Column(db.Boolean)
     description = db.Column(db.String)
@@ -15,7 +14,15 @@ class Game(db.Model):
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
 
-    want_to_play = db.relationship('Want_To_Play', back_populates='game')
+    want_to_play = db.relationship('WantToPlay', back_populates='game')
+    playing = db.relationship('Playing', back_populates='game')
+    played = db.relationship('Played', back_populates='game')
+    game_genre_joins = db.relationship('GameGenreJoin', back_populates='game')
+    game_screenshot_joins = db.relationship('GameScreenshotJoin', back_populates='game')
+
+
+
+    
 
 
     def to_dict(self):
