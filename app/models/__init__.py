@@ -7,4 +7,3 @@ from .played import Played
 from .genre import Genre
 from .screenshot import Screenshot
 from .game_genre_joins import GameGenreJoin
-from .game_screenshot_join import GameScreenshotJoin
