@@ -8,37 +8,43 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import Home from './components/Home';
 import Games from './components/Games'
-
-
-import {getGames} from './store/games'
+import SearchQuestions from './components/Search-Questions'
+import NavBar from './components/NavBar';
+// import {getGames} from './store/games'
+import {getCategories} from './store/categories'
+import {getGenres} from './store/genres'
+import fs from 'fs'
 
 
 function App() {
   const [loaded, setLoaded] = useState(false);
+  const [gamesLoaded, setGamesLoaded] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user)
 
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
-      await dispatch(getGames());
+      await dispatch(getCategories())
+      await dispatch(getGenres())
       setLoaded(true);
+      // await dispatch(getGames());
+      setGamesLoaded(true);
     })();
     
 
   }, [dispatch]);
 
 
-
-  
-  const gamesSlice = useSelector(state => state.games)
-
-
+  const categoriesSlice = useSelector(state => state.categories)
+  const genresSlice = useSelector(state => state.genres)
+  // const gamesSlice = useSelector(state => state.games)
 
 
 
-  const games = Object.values(gamesSlice)
-
+  // const games = Object.values(gamesSlice)
+  const categories = Object.values(categoriesSlice)
+  const genres = Object.values(genresSlice)
 
 
   if (!loaded) {
@@ -47,6 +53,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <NavBar/>
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -57,8 +64,8 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <Route path='/games' exact={true}>
-          <Games games={games} user={user}/>
+        <Route path='/search-questions'>
+          <SearchQuestions user={user} gamesLoaded={gamesLoaded} categories={categories} genres={genres}/>
         </Route>
         <Route path='/' exact={true}>
           <Home user={user}/>

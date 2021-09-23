@@ -11,6 +11,7 @@ function Home({user}){
                 <div>
                     <h1>{`Welcome Back, ${user?.username}`}</h1>
                     <LogoutButton/>
+                    <Link to="/search-questions">Begin Search</Link>
                 </div> 
             :
             
@@ -21,6 +22,9 @@ function Home({user}){
                     </div>
                     <div>
                         <Link to='/signup'>Signup</Link>
+                    </div>
+                    <div>
+                        <Link to="/search-questions">Begin Search</Link>
                     </div>
 
                 </div>

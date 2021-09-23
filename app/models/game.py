@@ -43,8 +43,8 @@ class Game(db.Model):
 
     def to_dict(self):
         
-        categoryList = [category.id for category in self.played]
-        genreList = [genre.id for genre in self.played]
+        categoryList = [category.id for category in self.game_category]
+        genreList = [genre.id for genre in self.game_genre]
 
         return{
             "id": self.id,
