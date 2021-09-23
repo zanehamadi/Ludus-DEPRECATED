@@ -10,10 +10,10 @@ import Home from './components/Home';
 import Games from './components/Games'
 import SearchQuestions from './components/Search-Questions'
 import NavBar from './components/NavBar';
-import {getGames} from './store/games'
-
-
-
+// import {getGames} from './store/games'
+import {getCategories} from './store/categories'
+import {getGenres} from './store/genres'
+import fs from 'fs'
 
 
 function App() {
@@ -25,8 +25,10 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(getCategories())
+      await dispatch(getGenres())
       setLoaded(true);
-      await dispatch(getGames());
+      // await dispatch(getGames());
       setGamesLoaded(true);
     })();
     
@@ -34,6 +36,15 @@ function App() {
   }, [dispatch]);
 
 
+  const categoriesSlice = useSelector(state => state.categories)
+  const genresSlice = useSelector(state => state.genres)
+  // const gamesSlice = useSelector(state => state.games)
+
+
+
+  // const games = Object.values(gamesSlice)
+  const categories = Object.values(categoriesSlice)
+  const genres = Object.values(genresSlice)
 
 
   if (!loaded) {
@@ -53,11 +64,8 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <Route path='/games' exact={true}>
-          <Games user={user}/>
-        </Route>
         <Route path='/search-questions'>
-          <SearchQuestions user={user} gamesLoaded={gamesLoaded}/>
+          <SearchQuestions user={user} gamesLoaded={gamesLoaded} categories={categories} genres={genres}/>
         </Route>
         <Route path='/' exact={true}>
           <Home user={user}/>
