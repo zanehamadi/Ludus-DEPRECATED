@@ -8,6 +8,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import Home from './components/Home';
 import Games from './components/Games'
+import SearchQuestions from './components/Search-Questions'
 
 
 import {getGames} from './store/games'
@@ -59,6 +60,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/games' exact={true}>
           <Games games={games} user={user}/>
+        </Route>
+        <Route path='/search-questions'>
+          <SearchQuestions games={games} user={user}/>
         </Route>
         <Route path='/' exact={true}>
           <Home user={user}/>
