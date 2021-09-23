@@ -46,7 +46,35 @@ def delete_played(user_id, game_id):
 @login_required
 def new_playing():
     data = request.get_json()
-    db.session.execute(played_table.insert().values(user_id = data['user_id'], game_id = data['game_id']))
+    db.session.execute(playing_table.insert().values(user_id = data['user_id'], game_id = data['game_id']))
     db.session.commit()
     updated_user = User.query.get(data['user_id'])
+    return updated_user.to_dict()
+
+
+@user_routes.route('/playing/<int:user_id>/<int:game_id>', methods=['DELETE'])
+@login_required
+def delete_playing(user_id, game_id):
+    db.session.execute( playing_table.delete().where(playing_table.c.game_id == game_id) )
+    db.session.commit()
+    updated_user = User.query.get(user_id)
+    return updated_user.to_dict()
+
+
+@user_routes.route('/want_to_play', methods=['POST'])
+@login_required
+def new_want_to_play():
+    data = request.get_json()
+    db.session.execute(want_to_play_table.insert().values(user_id = data['user_id'], game_id = data['game_id']))
+    db.session.commit()
+    updated_user = User.query.get(data['user_id'])
+    return updated_user.to_dict()
+
+
+@user_routes.route('/want_to_play/<int:user_id>/<int:game_id>', methods=['DELETE'])
+@login_required
+def delete_want_to_play(user_id, game_id):
+    db.session.execute(want_to_play_table.delete().where(want_to_play_table.c.game_id == game_id) )
+    db.session.commit()
+    updated_user = User.query.get(user_id)
     return updated_user.to_dict()

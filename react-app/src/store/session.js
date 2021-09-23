@@ -42,6 +42,63 @@ export const removePlayed = (data) => async(dispatch) => {
 }
 
 
+
+export const addNewPlaying = (data) => async (dispatch) => {
+
+  const res = await fetch('/api/users/playing', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+  });
+
+  if (res.ok) {
+      const updatedUser = await res.json();
+      dispatch(setUser(updatedUser))
+  }
+
+}
+
+
+
+export const removePlaying = (data) => async(dispatch) => {
+  const res = await fetch(`/api/users/playing/${data.user_id}/${data.game_id}`, {
+    method: 'DELETE'
+  })
+  if(res.ok){
+    const updatedUser = await res.json()
+    dispatch(setUser(updatedUser))
+  }
+}
+
+
+
+export const addWantToPlay = (data) => async (dispatch) => {
+
+  const res = await fetch('/api/users/want_to_play', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+  });
+
+  if (res.ok) {
+      const updatedUser = await res.json();
+      dispatch(setUser(updatedUser))
+  }
+
+}
+
+
+
+export const removeWantToPlay = (data) => async(dispatch) => {
+  const res = await fetch(`/api/users/want_to_play/${data.user_id}/${data.game_id}`, {
+    method: 'DELETE'
+  })
+  if(res.ok){
+    const updatedUser = await res.json()
+    dispatch(setUser(updatedUser))
+  }
+}
+
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
     headers: {
@@ -57,6 +114,9 @@ export const authenticate = () => async (dispatch) => {
     dispatch(setUser(data));
   }
 }
+
+
+
 
 export const login = (email, password) => async (dispatch) => {
   const response = await fetch('/api/auth/login', {
