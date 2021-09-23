@@ -19,7 +19,7 @@ export const getGames = () => async (dispatch) => {
 
 
 const initialState = {}
-let stateCopy = clone(state)
+// let stateCopy = clone(state)
 
 const gameReducer = (state = initialState, action) => {
     switch (action.type) {
