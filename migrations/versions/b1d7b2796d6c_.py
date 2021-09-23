@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: fc0aced9827e
+Revision ID: b1d7b2796d6c
 Revises: 
-Create Date: 2021-09-22 02:01:18.132533
+Create Date: 2021-09-22 15:23:25.910019
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'fc0aced9827e'
+revision = 'b1d7b2796d6c'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -41,14 +41,6 @@ def upgrade():
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
-    )
-    op.create_table('game_genre_join',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('game_id', sa.Integer(), nullable=True),
-    sa.Column('genre_id', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['game_id'], ['games.id'], ),
-    sa.ForeignKeyConstraint(['genre_id'], ['genres.id'], ),
-    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('played',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -90,7 +82,6 @@ def downgrade():
     op.drop_table('screenshots')
     op.drop_table('playing')
     op.drop_table('played')
-    op.drop_table('game_genre_join')
     op.drop_table('users')
     op.drop_table('genres')
     op.drop_table('games')

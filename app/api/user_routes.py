@@ -1,6 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import User
+from app.models import User, db
+from app.models.user import played_table, playing_table, want_to_play_table
 
 user_routes = Blueprint('users', __name__)
 
@@ -17,3 +18,25 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+@user_routes.route('/played', methods=['POST'])
+@login_required
+def new_played():
+    data = request.get_json()
+    db.session.execute(played_table.insert().values(user_id = data['user_id'], game_id = data['game_id']))
+    db.session.commit()
+    updated_user = User.query.get(data['user_id'])
+    return updated_user.to_dict()
+
+
+
+
+@user_routes.route('/played/<int:user_id>/<int:game_id>', methods=['DELETE'])
+@login_required
+def delete_played(user_id, game_id):
+    db.session.execute( played_table.delete().where(played_table.c.game_id == game_id) )
+    db.session.commit()
+    updated_user = User.query.get(user_id)
+    return updated_user.to_dict()
+
+

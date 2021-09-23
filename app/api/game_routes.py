@@ -10,7 +10,7 @@ game_routes = Blueprint('games', __name__)
 
 def games():
 
-    games = game.query.all()
+    games = Game.query.all()
 
     return {game.id: game.to_dict() for game in games}
 

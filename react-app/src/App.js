@@ -7,6 +7,11 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
 import { authenticate } from './store/session';
 import Home from './components/Home';
+import Games from './components/Games'
+
+
+import {getGames} from './store/games'
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -16,9 +21,25 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(getGames());
       setLoaded(true);
     })();
+    
+
   }, [dispatch]);
+
+
+
+  
+  const gamesSlice = useSelector(state => state.games)
+
+
+
+
+
+  const games = Object.values(gamesSlice)
+
+
 
   if (!loaded) {
     return null;
@@ -36,6 +57,9 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+        <Route path='/games' exact={true}>
+          <Games games={games} user={user}/>
+        </Route>
         <Route path='/' exact={true}>
           <Home user={user}/>
         </Route>
