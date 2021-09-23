@@ -1,3 +1,6 @@
+import rfdc from 'rfdc'
+const clone = rfdc()
+
 const LOAD_GAMES = 'games/LOAD_GAMES'
 
 const loadGames = (games) => ({
@@ -16,6 +19,7 @@ export const getGames = () => async (dispatch) => {
 
 
 const initialState = {}
+let stateCopy = clone(state)
 
 const gameReducer = (state = initialState, action) => {
     switch (action.type) {
