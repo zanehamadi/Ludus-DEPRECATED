@@ -19,6 +19,7 @@ def user(id):
     user = User.query.get(id)
     return user.to_dict()
 
+
 @user_routes.route('/played', methods=['POST'])
 @login_required
 def new_played():
@@ -40,3 +41,12 @@ def delete_played(user_id, game_id):
     return updated_user.to_dict()
 
 
+
+@user_routes.route('/playing', methods=['POST'])
+@login_required
+def new_playing():
+    data = request.get_json()
+    db.session.execute(played_table.insert().values(user_id = data['user_id'], game_id = data['game_id']))
+    db.session.commit()
+    updated_user = User.query.get(data['user_id'])
+    return updated_user.to_dict()
