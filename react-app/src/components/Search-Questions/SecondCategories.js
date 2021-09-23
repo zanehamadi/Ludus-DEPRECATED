@@ -1,14 +1,14 @@
 
 
-function SecondCategories({filters, setFilters, secondCat, setSecondCat, categories}){
+function SecondCategories({filters, setFilters,setSecondCat, categories}){
 
     
     const catTrack = new Set()
     const catTrackFunc = (id) => {
 
-        if(catTrack.has(id)) catTrack.remove(id)
+        if(catTrack.has(+id)) catTrack.delete(+id)
         else{
-            catTrack.add(id)
+            catTrack.add(+id)
         }
     }
 
@@ -34,6 +34,7 @@ function SecondCategories({filters, setFilters, secondCat, setSecondCat, categor
             <h1>
                 More Categories
             </h1>
+            {console.log(catTrack)}
             <div className="skipButton" onClick={() => setSecondCat(true)}>This section is optional, you can click here if you would like to skip.</div>
 
             {categories.map(category => 

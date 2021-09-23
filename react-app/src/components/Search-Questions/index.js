@@ -26,6 +26,7 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
     const restartFunc = () => {
         setFirstCat(false)
         setSecondCat(false)
+        setCheckGenres(false)
         setFilters({
             'category':[],
             'genre':[]})
@@ -55,6 +56,7 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
 
                                 <>
                                 <h1>It work</h1>
+                                {console.log(filters)}
                                 </>
                             
                             

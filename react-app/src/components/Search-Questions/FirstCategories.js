@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function FirstCategories({filters, setFilters, firstCat, setFirstCat}){
+function FirstCategories({filters, setFilters, setFirstCat}){
 
     const [multiplayer, setMultipler] = useState(false)
     const [singleplayer, setSingleplayer] = useState(false)
