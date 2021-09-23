@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import FirstCategories from "./FirstCategories";
+import SecondCategories from "./SecondCategories";
 
 function SearchQuestions({user, gamesLoaded, genres, categories}){
 
@@ -13,23 +14,35 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
         }
     })
     
-    const [filters, setFilters] = useState([
-        {category:[]},
-        {genre:[]}
-    ])
+    const [filters, setFilters] = useState({
+        'category':[],
+        'genre':[]})
 
     const [firstCat, setFirstCat] = useState(false)
+    const [secondCat, setSecondCat] = useState(false)
+
+    const restartFunc = () => {
+        setFirstCat(false)
+        setSecondCat(false)
+    }
 
     
     return(
         <>
+        <button onClick={restartFunc}>Start Over</button>
         {gamesLoaded  ?
             <>
                 {!firstCat ? 
 
                     <FirstCategories filters={filters} setFilters={setFilters} firstCat={firstCat} setFirstCat={setFirstCat}/>
                 :
-                    <h1>THIS IS FOR NEXT CATEGORIES</h1>
+                    <>
+                        {!secondCat ? 
+                            <SecondCategories filters={filters} setFilters={setFilters} secondCat={secondCat} setSecondCat={setSecondCat} categories={categories}/>
+                        :
+                            <h1>THIS IS FOR GENRE </h1>
+                        }
+                    </>
                 }
             </>
         : 
