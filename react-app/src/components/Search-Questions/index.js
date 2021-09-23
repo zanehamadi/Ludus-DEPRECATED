@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import FirstCategories from "./FirstCategories";
 import SecondCategories from "./SecondCategories";
+import Genres from "./Genres";
 
 function SearchQuestions({user, gamesLoaded, genres, categories}){
 
@@ -20,10 +21,14 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
 
     const [firstCat, setFirstCat] = useState(false)
     const [secondCat, setSecondCat] = useState(false)
+    const [checkGenres, setCheckGenres] = useState(false)
 
     const restartFunc = () => {
         setFirstCat(false)
         setSecondCat(false)
+        setFilters({
+            'category':[],
+            'genre':[]})
     }
 
     
@@ -40,7 +45,21 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
                         {!secondCat ? 
                             <SecondCategories filters={filters} setFilters={setFilters} secondCat={secondCat} setSecondCat={setSecondCat} categories={categories}/>
                         :
-                            <h1>THIS IS FOR GENRE </h1>
+                            <>
+                                {!checkGenres ? 
+                                
+                                    <Genres filters={filters} setFilters={setFilters} checkGenres={checkGenres} setCheckGenres={setCheckGenres} genres={genres}/>
+
+                                :
+
+
+                                <>
+                                <h1>It work</h1>
+                                </>
+                            
+                            
+                                }
+                            </>
                         }
                     </>
                 }

@@ -2,13 +2,27 @@
 
 function SecondCategories({filters, setFilters, secondCat, setSecondCat, categories}){
 
+    
     const catTrack = new Set()
+    const catTrackFunc = (id) => {
 
-    const catTwoSubmit = () => {
+        if(catTrack.has(id)) catTrack.remove(id)
+        else{
+            catTrack.add(id)
+        }
+    }
 
+    const secondCatSubmit = () => {
 
+        const copyFilters = filters
+        const secondCats = Array.from(catTrack)
 
+        secondCats.forEach(cat => {
+            copyFilters.category.push(+cat)
+        })
 
+        setFilters(copyFilters)
+        setSecondCat(true)
     }
 
 
@@ -24,10 +38,12 @@ function SecondCategories({filters, setFilters, secondCat, setSecondCat, categor
 
             {categories.map(category => 
                     <div className="categoryQuestion" key={category.id}>
-                        <input type="checkbox" name={category.name} value={category.id}/>
+                        <input type="checkbox" name={category.name} value={category.id} onClick={e => catTrackFunc(e.target.value)}/>
                         <label htmlFor={category.name}>{category.name}</label>
                     </div>
             )}
+
+            <button onClick={secondCatSubmit}>Next</button>
 
         </div>
     )
