@@ -3,6 +3,8 @@ from .users import seed_users, undo_users
 from .games import seed_games, undo_games
 from .genres import seed_genres, undo_genres
 from .screenshots import seed_screenshots, undo_screenshots
+from .played import seed_played, undo_played
+# from .played import seed_played, undo_played
 
 
 
@@ -20,6 +22,7 @@ def seed():
     seed_games()
     seed_genres()
     seed_screenshots()
+    seed_played()
     # Add other seed functions here
 
 
@@ -30,4 +33,5 @@ def undo():
     undo_games()
     undo_genres()
     undo_screenshots()
+    undo_played()
     # Add other undo functions here

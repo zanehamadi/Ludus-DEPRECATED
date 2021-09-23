@@ -2,6 +2,8 @@
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 
+
+
 const setUser = (user) => ({
   type: SET_USER,
   payload: user
@@ -11,7 +13,34 @@ const removeUser = () => ({
   type: REMOVE_USER,
 })
 
-const initialState = { user: null };
+
+
+
+export const addNewPlayed = (data) => async (dispatch) => {
+
+  const res = await fetch('/api/users/played', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+  });
+
+  if (res.ok) {
+      const updatedUser = await res.json();
+      dispatch(setUser(updatedUser))
+  }
+
+}
+
+export const removePlayed = (data) => async(dispatch) => {
+  const res = await fetch(`/api/users/played/${data.user_id}/${data.game_id}`, {
+    method: 'DELETE'
+  })
+  if(res.ok){
+    const updatedUser = await res.json()
+    dispatch(setUser(updatedUser))
+  }
+}
+
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
@@ -97,13 +126,21 @@ export const signUp = (username, email, password) => async (dispatch) => {
   }
 }
 
+
+
+
+
+const initialState = { user: null };
+
+
+
 export default function reducer(state = initialState, action) {
-  switch (action.type) {
-    case SET_USER:
-      return { user: action.payload }
-    case REMOVE_USER:
-      return { user: null }
-    default:
-      return state;
+    switch (action.type) {
+        case SET_USER:
+              return { user: action.payload }
+          case REMOVE_USER:
+              return { user: null }
+          default:
+              return state;
   }
 }

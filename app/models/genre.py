@@ -7,7 +7,6 @@ class Genre(db.Model):
     name = db.Column(db.String)
 
 
-    game_genre_joins = db.relationship('GameGenreJoin', back_populates='genre')
 
 
     def to_dict(self):
