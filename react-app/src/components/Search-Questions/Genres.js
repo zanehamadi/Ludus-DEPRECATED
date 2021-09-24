@@ -1,9 +1,10 @@
-
+import {searchRequest} from '../../store/games'
+import { useDispatch } from 'react-redux'
 import { useState } from "react"
 
-function Genres({filters, setFilters, setCheckGenres, genres}){
+function Genres({filters, setFilters, setCheckGenres, genres, setResults}){
 
-
+    const dispatch = useDispatch()
     const [validation, setValidation] = useState(false)
     const genreTrack = new Set()
     const genreTrackFunc = (id) => {
@@ -14,7 +15,7 @@ function Genres({filters, setFilters, setCheckGenres, genres}){
         }
     }
 
-    const genreSubmit = () => {
+    const genreSubmit = async () => {
 
         const copyFilters = filters
         const genreTrackArr = Array.from(genreTrack)
@@ -26,6 +27,8 @@ function Genres({filters, setFilters, setCheckGenres, genres}){
             })
             setFilters(copyFilters)
             setCheckGenres(true)
+            let resResults = await dispatch(searchRequest(filters))
+            setResults(resResults)
         }
 
     }
