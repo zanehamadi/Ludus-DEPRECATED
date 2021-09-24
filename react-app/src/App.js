@@ -14,6 +14,7 @@ import NavBar from './components/NavBar';
 import {getCategories} from './store/categories'
 import {getGenres} from './store/genres'
 import fs from 'fs'
+import Results from './components/Search-Questions/Results';
 
 
 function App() {
