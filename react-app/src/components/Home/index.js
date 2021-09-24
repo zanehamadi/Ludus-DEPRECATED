@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import LogoutButton from '../auth/LogoutButton'
 
 
 function Home({user}){
@@ -10,7 +9,6 @@ function Home({user}){
                 
                 <div>
                     <h1>{`Welcome Back, ${user?.username}`}</h1>
-                    <LogoutButton/>
                     <Link to="/search-questions">Begin Search</Link>
                 </div> 
             :
