@@ -82,6 +82,7 @@ function Results({resultsLoaded, user}){
                         <div>
 
                             <h2>{game.name}</h2>
+                            <img src={game.image}/>
                             <p>{game.description}</p>
                             {game.is_free ? <h3>Price: Free :)</h3> : <h3>{`Price: ${(game.price / 100)}`}</h3>}
                             <h3>{game.release_date}</h3>
