@@ -23,7 +23,6 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
     const [firstCat, setFirstCat] = useState(false)
     const [secondCat, setSecondCat] = useState(false)
     const [checkGenres, setCheckGenres] = useState(false)
-    const [results, setResults] = useState([])
     const [resultsLoaded, setResultsLoaded] = useState(false)
 
     const restartFunc = () => {
@@ -33,6 +32,7 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
         setFilters({
             'category':[],
             'genre':[]})
+        setResultsLoaded(false)
     }
 
     
@@ -52,10 +52,10 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
                             <>
                                 {!checkGenres ? 
                                 
-                                    <Genres filters={filters} setFilters={setFilters} checkGenres={checkGenres} setCheckGenres={setCheckGenres} genres={genres} setResults={setResults} setResultsLoaded={setResultsLoaded}/>
+                                    <Genres filters={filters} setFilters={setFilters} checkGenres={checkGenres} setCheckGenres={setCheckGenres} genres={genres} setResultsLoaded={setResultsLoaded}/>
 
                                 :
-                                    <Results filters={filters}/>
+                                    <Results   resultsLoaded={resultsLoaded} user={user}/>
                                 }
                             </>
                         }
