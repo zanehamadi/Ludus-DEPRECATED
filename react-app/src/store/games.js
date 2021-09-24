@@ -2,11 +2,17 @@
 // const clone = rfdc()
 
 const LOAD_GAMES = 'games/LOAD_GAMES'
+const GET_RESULTS = 'games/GET_RESULTS'
 
 const loadGames = (games) => ({
     type: LOAD_GAMES,
     games
 });
+
+const getResults = (filters) => ({
+    type: GET_RESULTS,
+    filters
+})
 
 
 export const getGames = () => async (dispatch) => {
@@ -17,6 +23,23 @@ export const getGames = () => async (dispatch) => {
     }
 };
 
+export const searchRequest = (data) => async (dispatch) => {
+    const res = await fetch('/api/games/results', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    });
+
+
+    if (res.ok) {
+        
+        const games = await res.json();
+        await dispatch(getResults(games))
+    }
+}
+
+
+
 
 const initialState = {}
 // let stateCopy = clone(state)
@@ -26,8 +49,12 @@ const gameReducer = (state = initialState, action) => {
         case LOAD_GAMES : {
             return { ...action.games }
         }
+        case GET_RESULTS: {
+            return{...action.filters}
+        }
         default:
             return state
+            
     }
 }
 

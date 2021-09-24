@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import FirstCategories from "./FirstCategories";
 import SecondCategories from "./SecondCategories";
 import Genres from "./Genres";
+import Results from "./Results";
 
 function SearchQuestions({user, gamesLoaded, genres, categories}){
 
@@ -22,6 +23,7 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
     const [firstCat, setFirstCat] = useState(false)
     const [secondCat, setSecondCat] = useState(false)
     const [checkGenres, setCheckGenres] = useState(false)
+    const [resultsLoaded, setResultsLoaded] = useState(false)
 
     const restartFunc = () => {
         setFirstCat(false)
@@ -30,6 +32,7 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
         setFilters({
             'category':[],
             'genre':[]})
+        setResultsLoaded(false)
     }
 
     
@@ -49,17 +52,10 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
                             <>
                                 {!checkGenres ? 
                                 
-                                    <Genres filters={filters} setFilters={setFilters} checkGenres={checkGenres} setCheckGenres={setCheckGenres} genres={genres}/>
+                                    <Genres filters={filters} setFilters={setFilters} checkGenres={checkGenres} setCheckGenres={setCheckGenres} genres={genres} setResultsLoaded={setResultsLoaded}/>
 
                                 :
-
-
-                                <>
-                                <h1>It work</h1>
-                                {console.log(filters)}
-                                </>
-                            
-                            
+                                    <Results   resultsLoaded={resultsLoaded} user={user}/>
                                 }
                             </>
                         }
