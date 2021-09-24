@@ -11,7 +11,7 @@ import os
 
 def seed_games():
     cwd = os.path.dirname(os.path.abspath(__file__))
-    filepath = os.path.join(cwd,'firstSeederData.json')
+    filepath = os.path.join(cwd,'gameWImg.json')
     game_seeder = open(filepath)
     games = json.load(game_seeder)
 
@@ -24,7 +24,8 @@ def seed_games():
             is_free = game['is_free'],
             description = game['description'],
             price = game['price'],
-            release_date = game['release_date']
+            release_date = game['release_date'],
+            image = game['img']
         )
         db.session.add(new_game)
 

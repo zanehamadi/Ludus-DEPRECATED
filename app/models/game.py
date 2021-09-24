@@ -25,6 +25,7 @@ class Game(db.Model):
     description = db.Column(db.String)
     price = db.Column(db.Integer)
     release_date = db.Column(db.String)
+    image = db.Column(db.String)
 
     game_category = db.relationship('Category', secondary=game_category_joins)
     game_genre = db.relationship('Genre', secondary=game_genre_joins)
@@ -54,6 +55,7 @@ class Game(db.Model):
             "description": self.description,
             "price": self.price,
             "release_date": self.release_date,
+            "image": self.image,
             "categories":categoryList,
             "genres": genreList
         }
