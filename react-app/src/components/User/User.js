@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import WantToPlay from './WantToPlay';
 
 function User() {
   const [user, setUser] = useState({});
@@ -41,6 +42,7 @@ function User() {
                 {listButton && 
                   <div>
                     <h2>Games List</h2>
+                    <WantToPlay/>
                   </div>
                 }
 
