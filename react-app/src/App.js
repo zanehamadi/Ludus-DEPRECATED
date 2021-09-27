@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import User from './components/User';
+import User from './components/User/User';
 import { authenticate } from './store/session';
 import Home from './components/Home';
 import Games from './components/Games'
@@ -70,6 +70,9 @@ function App() {
         </Route>
         <Route path='/' exact={true}>
           <Home user={user}/>
+        </Route>
+        <Route>
+          <h1>404 not found.</h1>
         </Route>
       </Switch>
     </BrowserRouter>
