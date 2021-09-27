@@ -33,6 +33,7 @@ class User(db.Model, UserMixin):
     want_to_play = db.relationship('Game', secondary=want_to_play_table)
     playing = db.relationship('Game', secondary=playing_table)
     played = db.relationship('Game', secondary=played_table)
+    reviews = db.relationship('Review', back_populates='user')
 
 
 
@@ -59,5 +60,6 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'wantToPlay': wantToPlay,
             'playing': playing,
-            'played': played
+            'played': played,
+            'reviews': [review.to_dict() for review in self.reviews]
         }

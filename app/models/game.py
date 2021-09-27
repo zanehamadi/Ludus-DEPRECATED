@@ -35,10 +35,11 @@ class Game(db.Model):
 
 
     screenshots = db.relationship('Screenshot', back_populates='game')
+    reviews = db.relationship('Review', back_populates='game')
 
+    
 
-
-
+    
     
 
 
