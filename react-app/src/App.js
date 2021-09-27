@@ -54,7 +54,7 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
+          <User user={user}/>
         </ProtectedRoute>
         <Route path='/search-questions'>
           <SearchQuestions user={user} gamesLoaded={gamesLoaded} categories={categories} genres={genres}/>
