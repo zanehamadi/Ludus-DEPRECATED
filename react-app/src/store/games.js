@@ -1,27 +1,21 @@
 // import rfdc from 'rfdc'
 // const clone = rfdc()
 
-const LOAD_GAMES = 'games/LOAD_GAMES'
 const GET_RESULTS = 'games/GET_RESULTS'
+const ADD_GAME = 'games/ADD_GAME'
 
-const loadGames = (games) => ({
-    type: LOAD_GAMES,
-    games
+
+const addGame = (game) => ({
+    type: ADD_GAME,
+    game
 });
+
 
 const getResults = (filters) => ({
     type: GET_RESULTS,
     filters
 })
 
-
-export const getGames = () => async (dispatch) => {
-    const res = await fetch('/api/games/');
-    if (res.ok) {
-        const games = await res.json();
-        dispatch((loadGames(games)))
-    }
-};
 
 export const searchRequest = (data) => async (dispatch) => {
     const res = await fetch('/api/games/results', {
@@ -39,11 +33,12 @@ export const searchRequest = (data) => async (dispatch) => {
 }
 
 
-export const getGame = () => (gameId) => async (dispatch) => {
+export const getGame = (gameId) => async (dispatch) => {
     const res = await fetch(`/api/games/${gameId}`);
     if (res.ok){
+        console.log('MOIZ AHMAD, MOIZZZZ AHMAD.... MOIZ AHMAD...')
         const game = await res.json();
-        dispatch((loadGames(game)))
+        await dispatch((addGame(game)))
     }
 }
 
@@ -55,11 +50,14 @@ const initialState = {}
 
 const gameReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOAD_GAMES : {
-            return { ...action.games }
-        }
+        
         case GET_RESULTS: {
             return{...action.filters}
+        }
+        case ADD_GAME:{
+            let stateCopy = {...state}
+            stateCopy[action.game.id] = action.game
+            return stateCopy
         }
         default:
             return state

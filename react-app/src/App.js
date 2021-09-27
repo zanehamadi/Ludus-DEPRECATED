@@ -7,14 +7,11 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User/User';
 import { authenticate } from './store/session';
 import Home from './components/Home';
-import Games from './components/Games'
 import SearchQuestions from './components/Search-Questions'
 import NavBar from './components/NavBar';
-// import {getGames} from './store/games'
 import {getCategories} from './store/categories'
 import {getGenres} from './store/genres'
-import fs from 'fs'
-import Results from './components/Search-Questions/Results';
+
 
 
 function App() {
@@ -29,7 +26,6 @@ function App() {
       await dispatch(getCategories())
       await dispatch(getGenres())
       setLoaded(true);
-      // await dispatch(getGames());
       setGamesLoaded(true);
     })();
     
@@ -39,11 +35,6 @@ function App() {
 
   const categoriesSlice = useSelector(state => state.categories)
   const genresSlice = useSelector(state => state.genres)
-  // const gamesSlice = useSelector(state => state.games)
-
-
-
-  // const games = Object.values(gamesSlice)
   const categories = Object.values(categoriesSlice)
   const genres = Object.values(genresSlice)
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import WantToPlay from './WantToPlay';
+import Lists from './Lists';
 
 function User() {
   const [user, setUser] = useState({});
@@ -27,7 +27,6 @@ function User() {
     else setListButton(true) 
   }
 
-  console.log(user)
 
   return (
 
@@ -42,7 +41,7 @@ function User() {
                 {listButton && 
                   <div>
                     <h2>Games List</h2>
-                    <WantToPlay/>
+                    <Lists user={user}/>
                   </div>
                 }
 
