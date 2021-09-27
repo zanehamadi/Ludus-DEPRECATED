@@ -39,6 +39,15 @@ export const searchRequest = (data) => async (dispatch) => {
 }
 
 
+export const getGame = () => (gameId) => async (dispatch) => {
+    const res = await fetch(`/api/games/${gameId}`);
+    if (res.ok){
+        const game = await res.json();
+        dispatch((loadGames(game)))
+    }
+}
+
+
 
 
 const initialState = {}
