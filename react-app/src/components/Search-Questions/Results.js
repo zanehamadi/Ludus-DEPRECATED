@@ -77,12 +77,12 @@ function Results({resultsLoaded, user}){
             {resultsLoaded ?
 
                 <div>
-                    <h5>{`results:${results.length}`}</h5>
-                    {results.map(game => 
+                    <h5>{`results:${results?.length}`}</h5>
+                    {results?.map(game => 
                         <div>
 
                             <h2>{game.name}</h2>
-                            <img src={game.image}/>
+                            <img src={game.image} alt={`${game.name}'s icon'`}/>
                             <p>{game.description}</p>
                             {game.is_free ? <h3>Price: Free :)</h3> : <h3>{`Price: ${(game.price / 100)}`}</h3>}
                             <h3>{game.release_date}</h3>
@@ -138,7 +138,7 @@ function Results({resultsLoaded, user}){
             
             <div className='loadingScreen'>
             <h1>Please wait a moment while the data loads.</h1>
-            <img src='https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif'/>
+            <img src='https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif' alt="Loading Icon"/>
             <h4>This may take some time.</h4>
             </div>
 

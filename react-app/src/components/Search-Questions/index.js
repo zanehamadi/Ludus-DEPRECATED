@@ -1,7 +1,4 @@
-import { Link } from "react-router-dom"
-// import {getGames} from '../../store/games'
-import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import FirstCategories from "./FirstCategories";
 import SecondCategories from "./SecondCategories";
 import Genres from "./Genres";
@@ -65,7 +62,7 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
         : 
             <div className='loadingScreen'>
                 <h1>Please wait a moment while the data loads.</h1>
-                <img src='https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif'/>
+                <img src='https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif' alt="Loading Icon"/>
                 <h4>This may take some time.</h4>
             </div>
         
