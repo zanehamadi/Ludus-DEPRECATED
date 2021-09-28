@@ -1,27 +1,27 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import LogoutButton from '../auth/LogoutButton'
 import DemoButton from "../auth/DemoButton"
-
+import './nav.css'
 
 function NavBar({user}){
 
     return(
         <div className="nav">
             {user ?
-                <span>
-                    <Link to='/'>Home</Link>
-                    <Link to='/search-questions'>Search</Link>
-                    <Link to={`/users/${user.id}`}>Profile</Link>
-                    <LogoutButton/>
-                </span>
+                <>
+                    <div><NavLink to='/'>HOME</NavLink></div>
+                    <div><NavLink to='/search-questions'>SEARCH</NavLink></div>
+                    <div><NavLink to={`/users/${user.id}`}>PROFILE</NavLink></div>
+                    <div><LogoutButton/></div>
+                </>
             :
-                <div>
-                    <Link to='/'>Home</Link>
-                    <Link to='/search-questions'>Search</Link>
-                    <Link to='/login'>Login</Link>
-                    <Link to='/signup'>Signup</Link>
-                    <DemoButton/>
-                </div>
+                <>
+                    <div><NavLink to='/'>HOME</NavLink></div>
+                    <div><NavLink to='/search-questions'>SEARCH</NavLink></div>
+                    <div><NavLink to='/login'>LOGIN</NavLink></div>
+                    <div><NavLink to='/sign-up'>SIGNUP</NavLink></div>
+                    <div><DemoButton/></div>
+                </>
             }
         </div>
     )
