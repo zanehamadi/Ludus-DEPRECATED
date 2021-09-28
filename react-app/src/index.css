@@ -1,11 +1,14 @@
 :root{
     --navbar-height:75px;
     --footer-height:10%;
+    --body-height: calc(80vh - var(--footer-height));
+    --body-width: 40vw;
 }
 
 *{
     box-sizing: border-box;
     font-family:'Times New Roman', Times, serif;
+    
 }
 #root{
     position: absolute;
@@ -21,19 +24,15 @@
     overflow-y: auto;
     width: 100%;
     margin:0;
-    padding: var(--navbar-height) 15.22% 13.221%;
+    padding: var(--navbar-height) 3% 13.222%;
     background-image: url("./background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
+    overflow: hidden;
+
 }
 
 html{
     overflow-y: hidden;
-
-}
-
-a:hover{
-    border: 3px solid black;
-    transition: border .3s ;
 }

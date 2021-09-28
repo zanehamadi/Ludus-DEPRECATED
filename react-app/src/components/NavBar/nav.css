@@ -32,3 +32,8 @@
 .active{
     text-shadow: 1px 1px 5px black;
 }
+
+.nav a:hover{
+    border: 3px solid black;
+    transition: border .3s ;
+}

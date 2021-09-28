@@ -3,6 +3,7 @@ import FirstCategories from "./FirstCategories";
 import SecondCategories from "./SecondCategories";
 import Genres from "./Genres";
 import Results from "./Results";
+import './search.css'
 
 function SearchQuestions({user, gamesLoaded, genres, categories}){
 
@@ -34,8 +35,8 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
 
     
     return(
-        <>
-        <button onClick={restartFunc}>Start Over</button>
+        <div className="questionsResultsContainer">
+        <button onClick={restartFunc} className="startOverButton searchText">Start Over</button>
         {gamesLoaded  ?
             <>
                 {!firstCat ? 
@@ -67,7 +68,7 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
             </div>
         
         }
-        </>
+        </div>
     )
 }
 

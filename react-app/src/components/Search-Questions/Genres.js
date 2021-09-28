@@ -49,7 +49,7 @@ function Genres({filters, setFilters, setCheckGenres, genres, setResults, setRes
             {genres.map(genre => 
 
                 <div className="genreQuestion" key={genre.id}>
-                            <input type="checkbox" name={genre.name} value={genre.id} onClick={e => genreTrackFunc(e.target.value)}/>
+                            <input type="checkbox" name={genre.name} value={genre.id} onClick={e => genreTrackFunc(e.target.value)} className="checkBoxStyling"/>
                             <label htmlFor={genre.name}>{genre.name}</label>
                 </div>
 

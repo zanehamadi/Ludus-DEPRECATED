@@ -47,27 +47,27 @@ function FirstCategories({filters, setFilters, setFirstCat}){
 
 
     return(
-            <div className='searchQuestions firstCat'>
-                <h2>Which type of game are you looking for?</h2>
-                <h4>You can pick multiple.</h4>
+            <div className='searchQuestions' id="firstCat">
+                <h2 className="searchText">Which type of game are you looking for?</h2>
+                <h4 className="searchText">You can pick multiple.</h4>
                 <div className='checkboxDiv'>
 
                     <div className="categoryQuestion">
-                        <input type="checkbox" value={1} name="multiplayer" onClick={e => categoryCheck(e.target.value)}/>
+                        <input type="checkbox" value={1} name="multiplayer" onClick={e => categoryCheck(e.target.value)} className="checkBoxStyling"/>
                         <label htmlFor="multiplayer">Multiplayer</label>
                     </div>
 
                     <div className="categoryQuestion">
-                        <input type="checkbox" value={2} name="singleplayer" onClick={e => categoryCheck(e.target.value)}/>
+                        <input type="checkbox" value={2} name="singleplayer" onClick={e => categoryCheck(e.target.value)} className="checkBoxStyling"/>
                         <label htmlFor="singleplayer">Singleplayer</label>
                     </div>
 
                     <div className="categoryQuestion">
-                        <input type="checkbox" value={9} name="coop" onClick={e => categoryCheck(e.target.value)}/>
+                        <input type="checkbox" value={9} name="coop" onClick={e => categoryCheck(e.target.value)} className="checkBoxStyling"/>
                         <label htmlFor="coop">Co-op</label>
                     </div>
 
-                    <button onClick={catOneSubmit}>Next</button>
+                    <button onClick={catOneSubmit} className="startOverButton searchText">Next</button>
 
                 </div>
                 {firstCatValidation && <h4>Please pick atleast one type of game.</h4>}

@@ -1,0 +1,84 @@
+.questionsResultsContainer{
+    width: var(--body-width);
+    height: var(--body-height);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: 1px solid whitesmoke;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(4px);
+    overflow-y: hidden;
+}
+
+
+.startOverButton{
+    background: transparent;
+    color: whitesmoke;
+    border: none;
+    width:fit-content;
+    height: 3em;
+    font-size: 16pt;
+    margin-top: 1rem;
+}
+
+.startOverButton:hover{
+    color: rgb(207, 100, 83);
+    cursor: pointer;
+    backdrop-filter: blur(1.5px);
+    transition: .6s;
+
+}
+
+
+#firstCat{
+    overflow-x: hidden;
+}
+
+.checkBoxStyling{
+    appearance: none;
+    border: 2px solid whitesmoke;
+    border-radius: 2px;
+    background-color: transparent;
+    padding: 8px;
+    margin-right: 10px;
+    margin-left: 1em;
+}
+
+.skipButton{
+    margin-left: 1em;
+    margin-bottom: 2em;
+}
+.checkBoxStyling:checked{
+    background-color: rgb(207, 100, 83);
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+.checkBoxStyling:hover{
+    cursor: pointer;
+}
+
+.categoryQuestion{
+    width: calc(var(--body-width) / 2);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px;
+}
+
+#secondCat{
+    overflow-y: scroll;
+    height: 100%;
+    border-top: 1px solid white;
+    width: 100%;
+
+}
+
+.searchText{
+    margin-left: 15px;
+}
+
+.secondCatNext{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
