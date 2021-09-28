@@ -63,7 +63,7 @@ function SearchQuestions({user, gamesLoaded, genres, categories}){
         : 
             <div className='loadingScreen'>
                 <h1>Please wait a moment while the data loads.</h1>
-                <img src='https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif' alt="Loading Icon"/>
+                <img src='https://cliply.co/wp-content/uploads/2019/09/371909290_ROCKET_400px.gif' alt="Loading Icon"/>
                 <h4>This may take some time.</h4>
             </div>
         

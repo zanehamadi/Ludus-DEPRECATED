@@ -1,3 +1,9 @@
 .filled{
     background-color: aliceblue;
 }
+
+.profileContainer{
+    width: var(--body-width);
+    height: var(--body-height);
+    overflow-y: scroll;
+}
