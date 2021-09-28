@@ -29,22 +29,25 @@ function SecondCategories({filters, setFilters,setSecondCat, categories}){
 
 
     return(
-        <div className="searchQuestions secondCat">
+        <div className="searchQuestions" id="secondCat">
             
-            <h1>
+            <h2 className="searchText">
                 More Categories
-            </h1>
+            </h2>
             {console.log(catTrack)}
             <div className="skipButton" onClick={() => setSecondCat(true)}>This section is optional, you can click here if you would like to skip.</div>
 
             {categories.map(category => 
-                    <div className="categoryQuestion" key={category.id}>
-                        <input type="checkbox" name={category.name} value={category.id} onClick={e => catTrackFunc(e.target.value)}/>
+                    <div className="categoryQuestion " key={category.id}>
+                        <input className="checkBoxStyling" type="checkbox" name={category.name} value={category.id} onClick={e => catTrackFunc(e.target.value)}/>
                         <label htmlFor={category.name}>{category.name}</label>
                     </div>
             )}
 
-            <button onClick={secondCatSubmit}>Next</button>
+            <button onClick={secondCatSubmit} className="searchText secondCatNext startOverButton">
+                Next
+                <i className="fas fa-caret-right rightArr"></i>
+            </button>
 
         </div>
     )

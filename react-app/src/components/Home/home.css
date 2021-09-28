@@ -1,13 +1,39 @@
 .homePage a{
     text-decoration: none;
-    font-size: 22pt;
+    font-size: 32pt;
     color: whitesmoke;
 }
 
 .homePage a:hover{
-    border: 1px solid whitesmoke
+    color: rgb(209, 92, 75);
+    transition: color .5s;
+
 }
 
 .homePage{
     font-family:'Times New Roman', Times, serif;
+}
+
+.beginSearchContainer{
+    width: 15em;
+
+}
+.beginSearchContainer:hover{
+    backdrop-filter: blur(3px);
+    transition: backdrop-filter .5s;
+
+}
+
+#welcomeMessage{
+    font-size: 72pt;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+    font-weight: 100;
+    color: whitesmoke;
+    
+}
+
+.homeSplashContainer{
+    width: var(--body-width);
+    height: var(--body-height);
 }

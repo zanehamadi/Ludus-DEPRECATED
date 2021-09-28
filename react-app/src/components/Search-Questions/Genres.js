@@ -42,19 +42,22 @@ function Genres({filters, setFilters, setCheckGenres, genres, setResults, setRes
     return(
         <div className="genreSelection">
             {console.log(filters)}
-            <h1>Genres</h1>
-            <h3>Please pick a minimum of two</h3>
+            <h2 className="searchText">Genres</h2>
+            <h4 className="searchText">Please pick a minimum of two</h4>
             {validation && <h4>Please enter atleast two genres.</h4>}
 
             {genres.map(genre => 
 
                 <div className="genreQuestion" key={genre.id}>
-                            <input type="checkbox" name={genre.name} value={genre.id} onClick={e => genreTrackFunc(e.target.value)}/>
+                            <input type="checkbox" name={genre.name} value={genre.id} onClick={e => genreTrackFunc(e.target.value)} className="checkBoxStyling"/>
                             <label htmlFor={genre.name}>{genre.name}</label>
                 </div>
 
             )}
-            <button onClick={genreSubmit}>View Results</button>
+            <button className="startOverButton" onClick={genreSubmit}>
+                View Results
+                <i className="fas fa-caret-right rightArr"></i>
+            </button>
         </div>
     )
 }

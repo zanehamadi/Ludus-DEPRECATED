@@ -9,18 +9,18 @@ function NavBar({user}){
         <div className="nav">
             {user ?
                 <>
-                    <div><NavLink to='/'>HOME</NavLink></div>
-                    <div><NavLink to='/search-questions'>SEARCH</NavLink></div>
-                    <div><NavLink to={`/users/${user.id}`}>PROFILE</NavLink></div>
-                    <div><LogoutButton/></div>
+                    <div className="navLinks"><NavLink to='/'>HOME</NavLink></div>
+                    <div className="navLinks"><NavLink to='/search-questions'>SEARCH</NavLink></div>
+                    <div className="navLinks"><NavLink to={`/users/${user.id}`}>PROFILE</NavLink></div>
+                    <div className="navLinks"><LogoutButton/></div>
                 </>
             :
                 <>
-                    <div><NavLink to='/'>HOME</NavLink></div>
-                    <div><NavLink to='/search-questions'>SEARCH</NavLink></div>
-                    <div><NavLink to='/login'>LOGIN</NavLink></div>
-                    <div><NavLink to='/sign-up'>SIGNUP</NavLink></div>
-                    <div><DemoButton/></div>
+                    <div className="navLinks"><NavLink to='/'>HOME</NavLink></div>
+                    <div className="navLinks"><NavLink to='/search-questions'>SEARCH</NavLink></div>
+                    <div className="navLinks"><NavLink to='/login'>LOGIN</NavLink></div>
+                    <div className="navLinks"><NavLink to='/sign-up'>SIGNUP</NavLink></div>
+                    <div className="navLinks"><DemoButton/></div>
                 </>
             }
         </div>
