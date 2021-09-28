@@ -8,7 +8,10 @@ function Results({resultsLoaded, user}){
     let results = Object.values(gamesSlice)
     results = results[0]
 
-    results = results?.filter(game => (!game?.name?.toUpperCase().includes('HENTAI') && !game?.description?.toUpperCase().includes('HENTAI')) && (!game?.name?.toUpperCase().includes('SEX') && !game?.description?.toUpperCase().includes('SEX')))
+    results = results?.filter(game => !game.name.toUpperCase().includes('HENTAI'))
+    results = results?.filter(game => !game?.description.toUpperCase().includes('HENTAI'))
+    results = results?.filter(game => !game?.name.toUpperCase().includes('SEX'))
+    results = results?.filter(game => !game?.description?.toUpperCase().includes('SEX'))
 
 
     const addPlayed = async(id) => {
@@ -131,9 +134,9 @@ function Results({resultsLoaded, user}){
             :
             
             <div className='loadingScreen'>
-            <h1>Please wait a moment while the data loads.</h1>
+            <h2 className="loadingMessage">Please wait a moment while the data loads.</h2>
             <img id="rocketGif" src='https://grandhcypher-crew.s3.us-west-1.amazonaws.com/sun-drawing-transparent.gif' alt="Loading Icon"/>
-            <h4>This may take some time.</h4>
+            <h4 className="loadingMessage">This may take some time.</h4>
             </div>
 
     

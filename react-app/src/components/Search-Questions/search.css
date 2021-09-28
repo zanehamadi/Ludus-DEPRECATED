@@ -16,7 +16,7 @@
     border: none;
     width:fit-content;
     height: 3em;
-    font-size: 16pt;
+    font-size: 16px;
     margin-top: 1rem;
 }
 
@@ -159,7 +159,7 @@
     border: none;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 200;
-    font-size: 15pt;
+    font-size: 15px;
     color: whitesmoke;
 }
 
@@ -184,4 +184,10 @@
 
 #rocketGif{
     background-color: transparent;
+    align-self: center
+}
+
+.loadingMessage{
+    align-self: center;
+    margin-left: 30px;
 }

@@ -1,6 +1,6 @@
 .homePage a{
     text-decoration: none;
-    font-size: 32pt;
+    font-size: 32px;
     color: whitesmoke;
 }
 
@@ -25,7 +25,7 @@
 }
 
 #welcomeMessage{
-    font-size: 72pt;
+    font-size: 60px;
     font-family: 'Times New Roman', Times, serif;
     text-decoration: none;
     font-weight: 100;

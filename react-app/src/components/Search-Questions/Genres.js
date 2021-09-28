@@ -6,13 +6,14 @@ function Genres({filters, setFilters, setCheckGenres, genres, setResults, setRes
 
     const dispatch = useDispatch()
     const [validation, setValidation] = useState(false)
-    const genreTrack = new Set()
+    const [genreTrack, setGenreTrack] = useState(new Set())
     const genreTrackFunc = (id) => {
-
-        if(genreTrack.has(+id)) genreTrack.delete(+id)
+        let genreTrackCopy = new Set(Array.from(genreTrack)) 
+        if(genreTrackCopy.has(+id)) genreTrackCopy.delete(+id)
         else{
-            genreTrack.add(+id)
+            genreTrackCopy.add(+id)
         }
+        setGenreTrack(genreTrackCopy)
     }
 
     const genreSubmit = async () => {
@@ -23,16 +24,13 @@ function Genres({filters, setFilters, setCheckGenres, genres, setResults, setRes
 
         if(genreTrackArr.length < 2) setValidation(true)
         else{
+            setValidation(false)
             genreTrackArr.forEach(id => {
                 copyFilters.genre.push(id)
             })
             setFilters(copyFilters)
             setCheckGenres(true)
-            let resResults = await dispatch(searchRequest(filters))
-            setResultsLoaded(true)
-            // console.log('RES RESULTS', resResults)
-            // const foundResults = Object.values(resResults)
-            // setResults(foundResults)
+            await dispatch(searchRequest(filters))
             setResultsLoaded(true)
         }
 
