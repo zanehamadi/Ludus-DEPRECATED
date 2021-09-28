@@ -13,6 +13,9 @@ function Results({resultsLoaded, user}){
         results = results?.filter(game => !game?.description.toUpperCase().includes('HENTAI'))
         results = results?.filter(game => !game?.name.toUpperCase().includes('SEX'))
         results = results?.filter(game => !game?.description?.toUpperCase().includes('SEX'))
+        
+    }else{
+        results = []
     }
 
 
