@@ -42,8 +42,8 @@ function Genres({filters, setFilters, setCheckGenres, genres, setResults, setRes
     return(
         <div className="genreSelection">
             {console.log(filters)}
-            <h1>Genres</h1>
-            <h3>Please pick a minimum of two</h3>
+            <h2 className="searchText">Genres</h2>
+            <h4 className="searchText">Please pick a minimum of two</h4>
             {validation && <h4>Please enter atleast two genres.</h4>}
 
             {genres.map(genre => 
@@ -54,7 +54,10 @@ function Genres({filters, setFilters, setCheckGenres, genres, setResults, setRes
                 </div>
 
             )}
-            <button onClick={genreSubmit}>View Results</button>
+            <button className="startOverButton" onClick={genreSubmit}>
+                View Results
+                <i className="fas fa-caret-right rightArr"></i>
+            </button>
         </div>
     )
 }

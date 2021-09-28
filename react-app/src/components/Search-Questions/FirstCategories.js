@@ -67,10 +67,13 @@ function FirstCategories({filters, setFilters, setFirstCat}){
                         <label htmlFor="coop">Co-op</label>
                     </div>
 
-                    <button onClick={catOneSubmit} className="startOverButton searchText">Next</button>
+                    <button onClick={catOneSubmit} className="startOverButton searchText">
+                        Next
+                        <i className="fas fa-caret-right rightArr"></i>
+                    </button>
 
                 </div>
-                {firstCatValidation && <h4>Please pick atleast one type of game.</h4>}
+                {firstCatValidation && <h4 className="searchText">Please pick at least one type of game.</h4>}
             </div>     
         )
 }
