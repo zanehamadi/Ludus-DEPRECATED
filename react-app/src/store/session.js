@@ -31,6 +31,46 @@ export const addNewPlayed = (data) => async (dispatch) => {
 
 }
 
+export const addReview = (data) =>  async (dispatch) => {
+
+  const res = await fetch('/api/reviews/', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json' },
+    body:JSON.stringify(data)
+  });
+  if (res.ok) {
+    const updatedUser = await res.json();
+    dispatch(setUser(updatedUser))
+  }
+
+}
+
+export const updateReview = (data) => async (dispatch) => {
+  const res = await fetch(`/api/reviews/${data.id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+
+  if (res.ok) {
+    const updatedUser = await res.json();
+    dispatch(setUser(updatedUser))
+  }
+
+}
+
+export const deleteReview = (id) => async (dispatch) => {
+  const res = await fetch(`/api/reviews/${id}`, {
+    method: 'DELETE'
+  })
+
+  if (res.ok) {
+    const updatedUser = await res.json();
+    dispatch(setUser(updatedUser))
+  }
+  
+}
+
 export const removePlayed = (data) => async(dispatch) => {
   const res = await fetch(`/api/users/played/${data.user_id}/${data.game_id}`, {
     method: 'DELETE'

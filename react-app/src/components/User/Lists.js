@@ -1,7 +1,8 @@
 import { useEffect} from "react"
 import { getGame} from "../../store/games"
 import { useDispatch, useSelector } from "react-redux"
-import { addNewPlayed, removePlayed,addNewPlaying, removePlaying, addWantToPlay, removeWantToPlay  } from "../../store/session"
+import { addNewPlayed, removePlayed,addNewPlaying, removePlaying, addWantToPlay, removeWantToPlay, addReview, deleteReview, updateReview  } from "../../store/session"
+import './user.css'
 
 
 function Lists({user}){
@@ -62,9 +63,9 @@ function Lists({user}){
         };
         
         await dispatch(addWantToPlay(payload))
-
+        
     }
-
+    
     const removeGameFromWantToPlay = async(id) => {
         const payload = {
             user_id:user?.id,
@@ -72,6 +73,38 @@ function Lists({user}){
         };
         await dispatch(removeWantToPlay(payload))
     }
+    
+    const reviewClickHandler = async (value, gameId) => {
+        const oldReview = user.reviews.find(review => review.game_id === gameId)
+        let oldValue = oldReview ? oldReview.review : 0
+        if(oldValue === +value){
+            oldValue = -1
+        }
+        switch(oldValue){
+            case 0:
+                let payload = {
+                    user_id: user?.id,
+                    review: value,
+                    game_id: gameId
+                };
+        
+                await dispatch(addReview(payload))
+                break
+            case -1:
+                console.log('IT HIT THIS CASE')
+                await dispatch(deleteReview(oldReview.id))
+                break
+            default:
+                // Update Review
+                let updatedPayload = {
+                    id : oldReview.id,
+                    review:value
+                };
+
+                await dispatch(updateReview(updatedPayload))
+                break
+        }
+    } 
 
     const wtpToPlaying = (id) => {
         removeGameFromWantToPlay(id)
@@ -111,8 +144,9 @@ function Lists({user}){
         }
         
     },[dispatch])
+
     
-    
+
 
     return(
         <>  
@@ -146,6 +180,21 @@ function Lists({user}){
                         <p>{game.name}</p>
                         <button value={game.id} onClick={(e => removeGameFromPlayed(e.target.value))}>Remove</button>
                         <button value={game.id} onClick={(e => playedToPlaying(e.target.value))}>Move to Playing</button>
+
+                            <div>
+                                <span>
+                                    <i class={` ${user.reviews.find(review => review.game_id === game.id)?.review >= 1 ? "fas fa-star" : 'far fa-star'}`} id={1} onClick={e => reviewClickHandler(e.target.id, game.id)}></i>
+
+                                    <i class={`far fa-star ${user.reviews.find(review => review.game_id === game.id)?.review >= 2 ? "fas fa-star" : 'far fa-star'}`} id={2} onClick={e => reviewClickHandler(e.target.id, game.id)}></i>
+
+                                    <i class={`far fa-star ${user.reviews.find(review => review.game_id === game.id)?.review >= 3 ? "fas fa-star" : 'far fa-star'}`} id={3} onClick={e => reviewClickHandler(e.target.id, game.id)}></i>
+
+                                    <i class={`far fa-star ${user.reviews.find(review => review.game_id === game.id)?.review >= 4 ? "fas fa-star" : 'far fa-star'}`} id={4} onClick={e => reviewClickHandler(e.target.id, game.id)}></i>
+
+                                    <i class={`far fa-star ${user.reviews.find(review => review.game_id === game.id)?.review >= 5 ? "fas fa-star" : 'far fa-star'}`} id={5} onClick={e => reviewClickHandler(e.target.id, game.id)}></i>
+                                </span>
+                            </div>
+
                     </div>
                 )}
             </div>

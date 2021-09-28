@@ -32,12 +32,15 @@ def updated_review(id):
     updated_user = User.query.get(old_review.user_id)
     return updated_user.to_dict()
 
-@review_routes.route('/<int:id>', method=['DELETE'])
+@review_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_review(id):
     review = Review.query.get(id)
+    user_id = review.user_id
     db.session.delete(review)
     db.session.commit()
-    return 'Review has been deleted :)'
+    updated_user = User.query.get(user_id)
+    return updated_user.to_dict()
+
 
 
