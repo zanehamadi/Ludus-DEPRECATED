@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import LogoutButton from '../auth/LogoutButton'
 import DemoButton from "../auth/DemoButton"
 import './nav.css'
@@ -8,20 +8,20 @@ function NavBar({user}){
     return(
         <div className="nav">
             {user ?
-                <span>
-                    <Link to='/'>Home</Link>
-                    <Link to='/search-questions'>Search</Link>
-                    <Link to={`/users/${user.id}`}>Profile</Link>
+                <>
+                    <NavLink to='/'>HOME</NavLink>
+                    <NavLink to='/search-questions'>SEARCH</NavLink>
+                    <NavLink to={`/users/${user.id}`}>PROFILE</NavLink>
                     <LogoutButton/>
-                </span>
+                </>
             :
-                <div>
-                    <Link to='/'>Home</Link>
-                    <Link to='/search-questions'>Search</Link>
-                    <Link to='/login'>Login</Link>
-                    <Link to='/sign-up'>Signup</Link>
+                <>
+                    <NavLink to='/'>HOME</NavLink>
+                    <NavLink to='/search-questions'>SEARCH</NavLink>
+                    <NavLink to='/login'>LOGIN</NavLink>
+                    <NavLink to='/sign-up'>SIGNUP</NavLink>
                     <DemoButton/>
-                </div>
+                </>
             }
         </div>
     )

@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
+
 
 const DemoButton = () => {
     const dispatch = useDispatch();
@@ -7,10 +9,12 @@ const DemoButton = () => {
 
     let credential = 'demo@email.com'
     let password = 'password'
-    let demoLogin = () => { return dispatch(sessionActions.login(credential, password)) }
+    let demoLogin = (e) => { 
+        e.preventDefault()
+        return dispatch(sessionActions.login(credential, password)) }
 
     return (
-            <button onClick={demoLogin}>Demo</button >
+            <Link onClick={demoLogin}>Demo</Link >
     )
 }
 

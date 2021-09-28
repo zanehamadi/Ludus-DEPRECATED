@@ -1,4 +1,13 @@
 .footer-images{
     background-color: transparent;
-    height: 6rem;
+    height: 100%;
+}
+.footer{
+    height: var(--footer-height);
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
+    margin:0;
+    background: transparent;
+
 }

@@ -47,26 +47,28 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar user={user}/>
-      <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User user={user}/>
-        </ProtectedRoute>
-        <Route path='/search-questions'>
-          <SearchQuestions user={user} gamesLoaded={gamesLoaded} categories={categories} genres={genres}/>
-        </Route>
-        <Route path='/' exact={true}>
-          <Home user={user}/>
-        </Route>
-        <Route>
-          <h1>404 not found.</h1>
-        </Route>
-      </Switch>
+      <div className="main">
+        <Switch>
+          <Route path='/login' exact={true}>
+            <LoginForm />
+          </Route>
+          <Route path='/sign-up' exact={true}>
+            <SignUpForm />
+          </Route>
+          <ProtectedRoute path='/users/:userId' exact={true} >
+            <User user={user}/>
+          </ProtectedRoute>
+          <Route path='/search-questions'>
+            <SearchQuestions user={user} gamesLoaded={gamesLoaded} categories={categories} genres={genres}/>
+          </Route>
+          <Route path='/' exact={true}>
+            <Home user={user}/>
+          </Route>
+          <Route>
+            <h1>404 not found.</h1>
+          </Route>
+        </Switch>
+      </div> 
       <Footer/>
     </BrowserRouter>
   );
