@@ -18,6 +18,14 @@
 .nav a{
     text-decoration:none;
     color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 5em;
+}
+
+.nav div{
+    position: relative;
 }
 
 .active{

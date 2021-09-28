@@ -31,3 +31,8 @@ html{
     overflow-y: hidden;
 
 }
+
+a:hover{
+    border: 3px solid black;
+    transition: border .3s ;
+}

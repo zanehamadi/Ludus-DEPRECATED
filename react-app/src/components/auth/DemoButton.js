@@ -14,7 +14,7 @@ const DemoButton = () => {
         return dispatch(sessionActions.login(credential, password)) }
 
     return (
-            <Link onClick={demoLogin}>Demo</Link >
+            <Link onClick={demoLogin}>DEMO</Link >
     )
 }
 
