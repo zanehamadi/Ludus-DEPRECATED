@@ -7,3 +7,7 @@
 .homePage a:hover{
     border: 1px solid whitesmoke
 }
+
+.homePage{
+    font-family:'Times New Roman', Times, serif;
+}

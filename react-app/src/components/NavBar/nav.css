@@ -22,6 +22,7 @@
     justify-content: center;
     position: absolute;
     width: 5em;
+    font-family:'Times New Roman', Times, serif;
 }
 
 .nav div{
