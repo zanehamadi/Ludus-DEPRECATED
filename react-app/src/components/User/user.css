@@ -72,6 +72,11 @@
 .rated:hover{
     color: white;
 }
+.specificGame{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 
 
