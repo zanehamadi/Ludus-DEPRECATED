@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Lists from './Lists';
 
 function User({user}) {
-  const [listButton, setListButton] = useState(true)
 
 
   return (
@@ -11,9 +10,9 @@ function User({user}) {
         {user.id ? 
 
           <div className="profileContainer">
-                <h1>{`${user.username}'s Profile`}</h1>
+                <h1 id="userProfileHeader">{`${user.username}'s Profile`}</h1>
+                  <h2 id="gameListHeader">Games List</h2>
                 <div>
-                  <h2>Games List</h2>
                   <Lists user={user}/>
                 </div>
 

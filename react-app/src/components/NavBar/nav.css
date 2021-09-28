@@ -12,7 +12,9 @@
     right: 5%;
     flex-direction: column;
     font-size: 32px;
-    /* font-family:Verdana, Geneva, Tahoma, sans-serif; */
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .nav a{
@@ -34,6 +36,6 @@
 }
 
 .nav a:hover{
-    border: 3px solid black;
-    transition: border .3s ;
+    text-shadow: 1px 1px 20px black;
+    transition: text-shadow .3s ;
 }
