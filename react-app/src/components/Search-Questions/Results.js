@@ -7,7 +7,7 @@ function Results({resultsLoaded, user}){
     const gamesSlice = useSelector(state => state.games)
     let results = gamesSlice ? Object.values(gamesSlice) : ''
 
-    if(results){
+    if(Array.isArray(results[0])){
         results = results[0]
         results = results?.filter(game => !game.name.toUpperCase().includes('HENTAI'))
         results = results?.filter(game => !game?.description.toUpperCase().includes('HENTAI'))
