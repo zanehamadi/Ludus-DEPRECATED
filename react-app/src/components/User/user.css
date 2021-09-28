@@ -6,4 +6,51 @@
     width: var(--body-width);
     height: var(--body-height);
     overflow-y: scroll;
+    border: 1px solid white;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(10px);
+
 }
+
+.profileContainer::-webkit-scrollbar {
+    width: 12px;
+    background-color: transparent;
+    /* border-left: 1px solid white; */
+}
+
+.profileContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(228, 77, 22, 0.3);
+    outline: 1px solid white;  
+}
+
+.gamesLists{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.gameList{
+    width: 15rem;
+    border: 1px solid white;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.gameList button{
+    color: white;
+    border: none;
+
+}
+
+#userProfileHeader{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+}
+
+

@@ -5,13 +5,15 @@ function Results({resultsLoaded, user}){
 
     const dispatch = useDispatch()
     const gamesSlice = useSelector(state => state.games)
-    let results = Object.values(gamesSlice)
-    results = results[0]
+    let results = gamesSlice ? Object.values(gamesSlice) : ''
 
-    results = results?.filter(game => !game.name.toUpperCase().includes('HENTAI'))
-    results = results?.filter(game => !game?.description.toUpperCase().includes('HENTAI'))
-    results = results?.filter(game => !game?.name.toUpperCase().includes('SEX'))
-    results = results?.filter(game => !game?.description?.toUpperCase().includes('SEX'))
+    if(results){
+        results = results[0]
+        results = results?.filter(game => !game.name.toUpperCase().includes('HENTAI'))
+        results = results?.filter(game => !game?.description.toUpperCase().includes('HENTAI'))
+        results = results?.filter(game => !game?.name.toUpperCase().includes('SEX'))
+        results = results?.filter(game => !game?.description?.toUpperCase().includes('SEX'))
+    }
 
 
     const addPlayed = async(id) => {
