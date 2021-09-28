@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import LogoutButton from '../auth/LogoutButton'
 import DemoButton from "../auth/DemoButton"
-
+import './nav.css'
 
 function NavBar({user}){
 
@@ -19,7 +19,7 @@ function NavBar({user}){
                     <Link to='/'>Home</Link>
                     <Link to='/search-questions'>Search</Link>
                     <Link to='/login'>Login</Link>
-                    <Link to='/signup'>Signup</Link>
+                    <Link to='/sign-up'>Signup</Link>
                     <DemoButton/>
                 </div>
             }

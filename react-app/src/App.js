@@ -11,6 +11,7 @@ import SearchQuestions from './components/Search-Questions'
 import NavBar from './components/NavBar';
 import {getCategories} from './store/categories'
 import {getGenres} from './store/genres'
+import Footer from './components/Footer';
 
 
 
@@ -66,6 +67,7 @@ function App() {
           <h1>404 not found.</h1>
         </Route>
       </Switch>
+      <Footer/>
     </BrowserRouter>
   );
 }
