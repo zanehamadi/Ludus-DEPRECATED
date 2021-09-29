@@ -151,7 +151,7 @@ function Lists({user}){
     return(
         <div className="gamesLists">  
             <div className="gameList">
-                <h3>Want to Play</h3>
+                <h3 className="gameListHeader">Want to Play</h3>
                 {wantToPlayGames.map(game =>
                         <div className="specificGame">
                             <h4>{game.name}</h4>
@@ -162,7 +162,7 @@ function Lists({user}){
             </div>
 
             <div className="gameList">
-                <h3>Playing</h3>
+                <h3 className="gamesListHeader">Playing</h3>
                 {playingGames.map(game =>
                     <div className="specificGame">
                         <h4>{game.name}</h4>
@@ -174,7 +174,7 @@ function Lists({user}){
             </div>
 
             <div className="gameList">
-                <h3>Played</h3>
+                <h3 className="gamesListHeader">Played</h3>
                 {playedGames.map(game =>
                     <div className="specificGame">
                         <h4>{game.name}</h4>
@@ -182,10 +182,14 @@ function Lists({user}){
                         <button value={game.id} onClick={(e => playedToPlaying(e.target.value))}>Move to Playing</button>
 
                             <span>
-                                <i class={` ${user.reviews.find(review => review.game_id === game.id)?.review >= 1 ? "fas fa-star rated" : 'farfa-star'}`} id={1} onClick={e => reviewClickHandler(e.target.id, game.id)}></i>
-                                <i class={`far fa-star ${user.reviews.find(review => review.game_id === game.id)?.review >= 2 ? "fas fa-star rated" :'far fa-star'}`} id={2} onClick={e => reviewClickHandler(e.target.id, game.id)}></i>
-                                <i class={`far fa-star ${user.reviews.find(review => review.game_id === game.id)?.review >= 3 ? "fas fa-star rated"  :'far fa-star'}`} id={3} onClick={e => reviewClickHandler(e.target.id, game.id)}></i>
-                                <i class={`far fa-star ${user.reviews.find(review => review.game_id === game.id)?.review >= 4 ? "fas fa-star rated" :'far fa-star'}`} id={4} onClick={e => reviewClickHandler(e.target.id, game.id)}></i>
+                                <i class={` ${user.reviews.find(review => review.game_id === game.id)?.review >= 1 ? "fas fa-star rated" :'far fa-star'}`} id={1} onClick={e => reviewClickHandler(e.target.id, game.id)}></i>
+
+                                <i class={`${user.reviews.find(review => review.game_id === game.id)?.review >= 2 ? "fas fa-star rated" :'far fa-star'}`} id={2} onClick={e => reviewClickHandler(e.target.id, game.id)}></i>
+
+                                <i class={`${user.reviews.find(review => review.game_id === game.id)?.review >= 3 ? "fas fa-star rated" :'far fa-star'}`} id={3} onClick={e => reviewClickHandler(e.target.id, game.id)}></i>
+
+                                <i class={`${user.reviews.find(review => review.game_id === game.id)?.review >= 4 ? "fas fa-star rated" :'far fa-star'}`} id={4} onClick={e => reviewClickHandler(e.target.id, game.id)}></i>
+
                                 <i class={`far fa-star ${user.reviews.find(review => review.game_id === game.id)?.review >= 5 ? "fas fa-star rated" :'far fa-star'}`} id={5} onClick={e => reviewClickHandler(e.target.id, game.id)}></i>
                             </span>
 

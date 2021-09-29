@@ -92,7 +92,7 @@ function Results({resultsLoaded, user}){
                         <>
                                 <div className="searchText specificResult">
 
-                                    <h2>{game.name}</h2>
+                                    <h2 id="gameName">{game.name}</h2>
                                     <img src={game.image} alt={`${game.name}'s icon'`}/>
                                     <p>{game.description}</p>
                                     <h3>{game.release_date}</h3>
