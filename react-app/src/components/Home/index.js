@@ -19,7 +19,7 @@ function Home({user}){
                         <Link to='/login' className="splashText">LOGIN</Link>
                     </div>
                     <div>
-                        <Link to='/signup' className="splashText">SIGNUP</Link>
+                        <Link to='/sign-up' className="splashText">SIGNUP</Link>
                     </div>
                     <div>
                         <Link to="/search-questions" className="splashText">BEGIN SEARCH</Link>
