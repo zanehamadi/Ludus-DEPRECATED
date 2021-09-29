@@ -154,7 +154,7 @@ function Lists({user}){
                 <h3 className="gameListHeader">Want to Play</h3>
                 {wantToPlayGames.map(game =>
                         <div className="specificGame">
-                            <h4>{game.name}</h4>
+                            <h4 className="gameHeader">{game.name}</h4>
                             <button value={game.id} onClick={(e => removeGameFromWantToPlay(e.target.value))}>Remove</button>
                             <button value={game.id} onClick={(e => wtpToPlaying(e.target.value))}>Move to Playing</button>
                         </div> 
@@ -165,7 +165,7 @@ function Lists({user}){
                 <h3 className="gamesListHeader">Playing</h3>
                 {playingGames.map(game =>
                     <div className="specificGame">
-                        <h4>{game.name}</h4>
+                        <h4 className="gameHeader">{game.name}</h4>
                         <button value={game.id} onClick={(e => removeGameFromPlaying(e.target.value))}>Remove</button>
                         <button value={game.id} onClick={(e => playingToPlayed(e.target.value))}>Move to Played</button>
                         <button value={game.id} onClick={(e => playingToWTP(e.target.value))}>Move to Want to Play</button>
@@ -177,7 +177,7 @@ function Lists({user}){
                 <h3 className="gamesListHeader">Played</h3>
                 {playedGames.map(game =>
                     <div className="specificGame">
-                        <h4>{game.name}</h4>
+                        <h4 className="gameHeader">{game.name}</h4>
                         <button value={game.id} onClick={(e => removeGameFromPlayed(e.target.value))}>Remove</button>
                         <button value={game.id} onClick={(e => playedToPlaying(e.target.value))}>Move to Playing</button>
 

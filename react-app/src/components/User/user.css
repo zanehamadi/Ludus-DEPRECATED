@@ -76,7 +76,12 @@
 .specificGame{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    width: 12em;
+    margin-bottom: 1em;
+    padding: 1em;
+    align-items: center;
+    justify-content: space-between;
+
 }
 
 .gameListHeader{
@@ -86,6 +91,12 @@
 .gamesListHeader{
     text-shadow: 2px 2px rgb(47, 26, 2);
 }
+
+.gameHeader{
+    text-align: center;
+}
+
+
 
 
 
