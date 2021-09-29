@@ -17,7 +17,7 @@ function Footer(){
             <a href="https://steamcommunity.com/dev">
                 <i className="fab fa-steam fa-5x navIcons"></i>
             </a>
-            <Link className="navIcons" id="aboutUs">About Us</Link>
+            <Link className="navIcons" id="aboutUs">ABOUT US</Link>
         </footer>
     )
 }

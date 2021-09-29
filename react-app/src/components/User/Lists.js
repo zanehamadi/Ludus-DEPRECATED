@@ -151,7 +151,7 @@ function Lists({user}){
     return(
         <div className="gamesLists">  
             <div className="gameList">
-                <h3 className="gameListHeader">Want to Play</h3>
+                <h3 className="gamesListHeader">WANT TO PLAY</h3>
                 {wantToPlayGames.map(game =>
                         <div className="specificGame">
                             <h4 className="gameHeader">{game.name}</h4>
@@ -161,8 +161,8 @@ function Lists({user}){
                 )}
             </div>
 
-            <div className="gameList">
-                <h3 className="gamesListHeader">Playing</h3>
+            <div className="gameList" id="playingList">
+                <h3 className="gamesListHeader">PLAYING</h3>
                 {playingGames.map(game =>
                     <div className="specificGame">
                         <h4 className="gameHeader">{game.name}</h4>
@@ -174,7 +174,7 @@ function Lists({user}){
             </div>
 
             <div className="gameList">
-                <h3 className="gamesListHeader">Played</h3>
+                <h3 className="gamesListHeader">PLAYED</h3>
                 {playedGames.map(game =>
                     <div className="specificGame">
                         <h4 className="gameHeader">{game.name}</h4>
