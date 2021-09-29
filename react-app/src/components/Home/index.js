@@ -10,7 +10,7 @@ function Home({user}){
                 
                 <div className="homePage">
                     <h2 id="welcomeMessage">{`Welcome Back, ${user?.username}`}</h2>
-                    <div className="beginSearchContainer"><Link to="/search-questions">Begin Search</Link></div>
+                    <div className="beginSearchContainer"><Link to="/search-questions" className="beginSearchButton">Begin Search</Link></div>
                 </div> 
             :
             
