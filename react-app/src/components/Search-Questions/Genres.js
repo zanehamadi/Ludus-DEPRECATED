@@ -42,7 +42,7 @@ function Genres({filters, setFilters, setCheckGenres, genres, setResults, setRes
             {console.log(filters)}
             <h2 className="searchText">Genres</h2>
             <h4 className="searchText">Please pick a minimum of two</h4>
-            {validation && <h4>Please enter atleast two genres.</h4>}
+            {validation && <h4 className="searchText">Please enter atleast two genres.</h4>}
 
             {genres.map(genre => 
 
