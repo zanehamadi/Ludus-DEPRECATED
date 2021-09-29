@@ -12,6 +12,7 @@ import NavBar from './components/NavBar';
 import {getCategories} from './store/categories'
 import {getGenres} from './store/genres'
 import Footer from './components/Footer';
+import AboutUs from './components/About-Us/about-us';
 
 
 
@@ -63,6 +64,9 @@ function App() {
           </Route>
           <Route path='/' exact={true}>
             <Home user={user}/>
+          </Route>
+          <Route PATH="/" exact={true}>
+            <AboutUs/>
           </Route>
           <Route>
             <h1>404 not found.</h1>
