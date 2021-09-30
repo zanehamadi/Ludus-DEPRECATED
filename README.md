@@ -1,3 +1,2 @@
 # Ludus
-
-[Working Heroku Link!](https://ludus-search.herokuapp.com/)
+# THIS REPO IS NOW DEPRECATED, PLEASE GO TO: https://github.com/zanehamadi/Ludus FOR NEW REPO.
