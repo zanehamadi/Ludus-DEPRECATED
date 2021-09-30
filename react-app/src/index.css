@@ -26,7 +26,8 @@
     width: 100%;
     margin:0;
     padding: var(--navbar-height) 3% 13.222%;
-    background-image: url("./LUDUS-BG0.gif");
+    /* background-image: url("./LUDUS-BG0.gif"); */
+    background-color: black;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
