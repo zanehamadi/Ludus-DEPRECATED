@@ -32,6 +32,7 @@ MarkupSafe = "==2.0.1"
 SQLAlchemy = "==1.4.19"
 Werkzeug = "==2.0.1"
 WTForms = "==2.3.3"
+email-validator = "*"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"

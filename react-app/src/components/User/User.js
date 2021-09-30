@@ -10,8 +10,8 @@ function User({user}) {
         {user.id ? 
 
           <div className="profileContainer">
-                <h1 id="userProfileHeader">{`${user.username}'s Profile`}</h1>
-                  <h2 id="gameListHeader">Games List</h2>
+                <h1 id="userProfileHeader">{`${user.username.toUpperCase()}'S PROFILE`}</h1>
+                  <h2 id="gameListHeader">GAMES LIST</h2>
                 <div>
                   <Lists user={user}/>
                 </div>

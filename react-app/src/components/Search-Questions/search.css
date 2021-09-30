@@ -157,7 +157,6 @@
 .gameListSearchButton{
     background-color: transparent;
     border: none;
-    font-family: 'Times New Roman', Times, serif;
     font-weight: 200;
     font-size: 15px;
     color: whitesmoke;
@@ -194,4 +193,12 @@
 
 #gameName{
     text-shadow: 2px 2px rgb(47, 26, 2);
+}
+
+.headerImg{
+    border: 1px solid white;
+    width: 462px;
+    height: 217px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.349);
+
 }

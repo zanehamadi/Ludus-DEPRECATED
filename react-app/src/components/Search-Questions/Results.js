@@ -91,46 +91,44 @@ function Results({resultsLoaded, user}){
                     {results?.map(game => 
                         <>
                                 <div className="searchText specificResult">
-
-                                    <h2 id="gameName">{game.name}</h2>
-                                    <img src={game.image} alt={`${game.name}'s icon'`}/>
-                                    <p>{game.description}</p>
-                                    <h3>{game.release_date}</h3>
-
-
-                                    <div>
-                                        <a href={`https://store.steampowered.com/app/${game.id}/`} id="steamLink">View on the Steam Store</a>
+                                    <div className="headerImg">
+                                        <img src={game.image} alt={`${game.name}'s icon'`} />
                                     </div>
-                                    
-
-                                    {user &&
-                                        <div className="userListButtonsContainer">
-                                            {(!user?.played.includes(game.id) && !user?.playing.includes(game.id) && !user?.wantToPlay.includes(game.id)) &&
-                                                <>
-                                                    <button value={game.id} className="gameListSearchButton" onClick={e => addGameWantToPlay(e.target.value)}>Add Game to 'Want to Play'</button>
-                                                    <button value={game.id} className="gameListSearchButton" onClick={e => addPlaying(e.target.value)}>Add Game to 'Playing'</button>
-                                                    <button value={game.id} className="gameListSearchButton" onClick={e => addPlayed(e.target.value)}>Add Game to 'Played'</button>
-                                                </>
-                                            
-                                            }
-
-                                            {user?.played.includes(game.id) &&
-
-                                                <button value={game.id} className="gameListSearchButton" onClick={e => removeGameFromPlayed(e.target.value)}>Remove Game from 'Played'</button>
-
-                                            }
-                                            {user?.playing.includes(game.id) && 
-
-                                                <button value={game.id} className="gameListSearchButton" onClick={e => removeGameFromPlaying(e.target.value)}>Remove Game from 'Playing'</button>
-                            
-                                            }
-                                            {user?.wantToPlay.includes(game.id) &&
-
-                                                <button value={game.id} className="gameListSearchButton" onClick={e => removeGameFromWantToPlay(e.target.value)}>Remove Game from 'Want to Play'</button>
+                                    <div className="game-info">
+                                        <h2 id="gameName">{game.name}</h2>
+                                        <p>{game.description}</p>
+                                        <h3>{game.release_date}</h3>
+                                        <a href={`https://store.steampowered.com/app/${game.id}/`} id="steamLink">View on the Steam Store</a>
+                                        {user &&
+                                            <div className="userListButtonsContainer">
+                                                {(!user?.played.includes(game.id) && !user?.playing.includes(game.id) && !user?.wantToPlay.includes(game.id)) &&
+                                                    <>
+                                                        <button value={game.id} className="gameListSearchButton" onClick={e => addGameWantToPlay(e.target.value)}>Add Game to 'Want to Play'</button>
+                                                        <button value={game.id} className="gameListSearchButton" onClick={e => addPlaying(e.target.value)}>Add Game to 'Playing'</button>
+                                                        <button value={game.id} className="gameListSearchButton" onClick={e => addPlayed(e.target.value)}>Add Game to 'Played'</button>
+                                                    </>
                                                 
-                                            }
-                                        </div>
-                                    }
+                                                }
+
+                                                {user?.played.includes(game.id) &&
+
+                                                    <button value={game.id} className="gameListSearchButton" onClick={e => removeGameFromPlayed(e.target.value)}>Remove Game from 'Played'</button>
+
+                                                }
+                                                {user?.playing.includes(game.id) && 
+
+                                                    <button value={game.id} className="gameListSearchButton" onClick={e => removeGameFromPlaying(e.target.value)}>Remove Game from 'Playing'</button>
+                                
+                                                }
+                                                {user?.wantToPlay.includes(game.id) &&
+
+                                                    <button value={game.id} className="gameListSearchButton" onClick={e => removeGameFromWantToPlay(e.target.value)}>Remove Game from 'Want to Play'</button>
+                                                    
+                                                }
+                                            </div>
+                                        }
+
+                                    </div>
                                 </div>
                        </>   
                     )}
